@@ -150,8 +150,6 @@ func main() {
 	}
 	p := message.NewPrinter(language.English)
 
-	log.Println(p.Sprintf("%d", 5))
-
 	for _, s := range sections {
 		for i, r := range s.Repos {
 			repo, _, err := gh.Repositories.Get(context.Background(), r.Org, r.Name)
@@ -169,25 +167,28 @@ func main() {
 	d.Sections = sections
 
 	log.Println("searching and sorting repos...")
-	result, _, err := gh.Search.Repositories(context.Background(), "language: golang", &github.SearchOptions{
-		Sort: "stars",
-		ListOptions: github.ListOptions{
-			Page:    1,
-			PerPage: 100,
-		},
-	})
-	if err != nil {
-		panic(err)
-	}
-	for _, r := range result.Repositories {
-		d.Sections[len(d.Sections)-1].Repos = append(d.Sections[len(d.Sections)-1].Repos, Repo{
-			FullName:    *r.FullName,
-			Description: strings.ReplaceAll(*r.Description, "|", " "),
-			Stars:       p.Sprintf("%d", *r.StargazersCount),
-			Link:        r.GetHTMLURL(),
+
+	for i := 0; i < 3; i++ {
+		result, _, err := gh.Search.Repositories(context.Background(), "language: golang", &github.SearchOptions{
+			Sort: "stars",
+			ListOptions: github.ListOptions{
+				Page:    i + 1,
+				PerPage: 100,
+			},
 		})
+		if err != nil {
+			panic(err)
+		}
+		log.Printf("searched: %d", len(result.Repositories))
+		for _, r := range result.Repositories {
+			d.Sections[len(d.Sections)-1].Repos = append(d.Sections[len(d.Sections)-1].Repos, Repo{
+				FullName:    *r.FullName,
+				Description: strings.ReplaceAll(*r.Description, "|", " "),
+				Stars:       p.Sprintf("%d", *r.StargazersCount),
+				Link:        r.GetHTMLURL(),
+			})
+		}
 	}
-	log.Printf("searched: %d", len(result.Repositories))
 
 	if err := t.Execute(os.Stdout, d); err != nil {
 		panic(err)

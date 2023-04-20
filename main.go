@@ -125,6 +125,10 @@ var sections = []Section{
 			{Org: "tmrts", Name: "go-patterns"},
 		},
 	},
+	{
+		Title: "Popular",
+		Repos: []Repo{},
+	},
 }
 
 func main() {
@@ -132,33 +136,57 @@ func main() {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: os.Getenv("GH_TOKEN")},
 	)
-	gh := github.NewClient(oauth2.NewClient(context.Background(), ts))
+	httpc := oauth2.NewClient(context.Background(), ts)
+	httpc.Timeout = 2 * time.Minute
+	gh := github.NewClient(httpc)
 	t := template.Must(template.New("readme").Parse(readmeTmpl))
 	d := Data{
 		UpdatedAt: time.Now().Format("2006 Jan 2"),
 		Nbsps: []string{
 			strings.Repeat("&nbsp;", 40),
-			strings.Repeat("&nbsp;", 92),
+			strings.Repeat("&nbsp;", 90),
 			strings.Repeat("&nbsp;", 5),
 		},
 	}
 	p := message.NewPrinter(language.English)
 
+	log.Println(p.Sprintf("%d", 5))
+
 	for _, s := range sections {
 		for i, r := range s.Repos {
-			repo, _, err := gh.Repositories.Get(context.Background(), r.Org, r.Name)
-			if err != nil {
-				panic(err)
-			}
-			s.Repos[i].FullName = repo.GetFullName()
-			s.Repos[i].Description = repo.GetDescription()
-			s.Repos[i].Stars = p.Sprintf("%d", repo.GetStargazersCount())
-			s.Repos[i].Link = repo.GetHTMLURL()
+	repo, _, err := gh.Repositories.Get(context.Background(), r.Org, r.Name)
+	if err != nil {
+		panic(err)
+	}
+	s.Repos[i].FullName = repo.GetFullName()
+	s.Repos[i].Description = repo.GetDescription()
+	s.Repos[i].Stars = p.Sprintf("%d", repo.GetStargazersCount())
+	s.Repos[i].Link = repo.GetHTMLURL()
 		}
 	}
 
 	log.Println("queried repos")
 	d.Sections = sections
+
+	log.Println("searching and sorting repos...")
+	result, _, err := gh.Search.Repositories(context.Background(), "language: golang", &github.SearchOptions{
+		Sort: "stars",
+		ListOptions: github.ListOptions{
+			Page:    1,
+			PerPage: 100,
+		},
+	})
+	if err != nil {
+		panic(err)
+	}
+	for _, r := range result.Repositories {
+		d.Sections[len(d.Sections)-1].Repos = append(d.Sections[len(d.Sections)-1].Repos, Repo{
+			FullName:    *r.FullName,
+			Description: *r.Description,
+			Stars:       p.Sprintf("%d", *r.StargazersCount),
+		})
+	}
+	log.Printf("searched: %d", len(result.Repositories))
 
 	if err := t.Execute(os.Stdout, d); err != nil {
 		panic(err)

@@ -145,7 +145,7 @@ func main() {
 		Nbsps: []string{
 			strings.Repeat("&nbsp;", 40),
 			strings.Repeat("&nbsp;", 90),
-			strings.Repeat("&nbsp;", 5),
+			strings.Repeat("&nbsp;", 7),
 		},
 	}
 	p := message.NewPrinter(language.English)
@@ -154,14 +154,14 @@ func main() {
 
 	for _, s := range sections {
 		for i, r := range s.Repos {
-	repo, _, err := gh.Repositories.Get(context.Background(), r.Org, r.Name)
-	if err != nil {
-		panic(err)
-	}
-	s.Repos[i].FullName = repo.GetFullName()
-	s.Repos[i].Description = repo.GetDescription()
-	s.Repos[i].Stars = p.Sprintf("%d", repo.GetStargazersCount())
-	s.Repos[i].Link = repo.GetHTMLURL()
+			repo, _, err := gh.Repositories.Get(context.Background(), r.Org, r.Name)
+			if err != nil {
+				panic(err)
+			}
+			s.Repos[i].FullName = repo.GetFullName()
+			s.Repos[i].Description = repo.GetDescription()
+			s.Repos[i].Stars = p.Sprintf("%d", repo.GetStargazersCount())
+			s.Repos[i].Link = repo.GetHTMLURL()
 		}
 	}
 
@@ -184,6 +184,7 @@ func main() {
 			FullName:    *r.FullName,
 			Description: strings.ReplaceAll(*r.Description, "|", " "),
 			Stars:       p.Sprintf("%d", *r.StargazersCount),
+			Link:        r.GetHTMLURL(),
 		})
 	}
 	log.Printf("searched: %d", len(result.Repositories))

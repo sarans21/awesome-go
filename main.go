@@ -182,7 +182,7 @@ func main() {
 	for _, r := range result.Repositories {
 		d.Sections[len(d.Sections)-1].Repos = append(d.Sections[len(d.Sections)-1].Repos, Repo{
 			FullName:    *r.FullName,
-			Description: *r.Description,
+			Description: strings.ReplaceAll(*r.Description, "|", " "),
 			Stars:       p.Sprintf("%d", *r.StargazersCount),
 		})
 	}

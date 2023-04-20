@@ -70,9 +70,9 @@ A list of my personally frequently used modules.
 ## Popular
 |Repo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Stars&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |---|---|---|
-|[golang/go]()|The Go programming language|110,474|
+|[golang/go]()|The Go programming language|110,475|
 |[avelino/awesome-go]()|A curated list of awesome Go frameworks, libraries and software|100,121|
-|[practical-tutorials/project-based-learning]()|Curated list of project-based tutorials|99,089|
+|[practical-tutorials/project-based-learning]()|Curated list of project-based tutorials|99,090|
 |[gin-gonic/gin]()|Gin is a HTTP web framework written in Go (Golang). It features a Martini-like API with much better performance -- up to 40 times faster. If you need smashing performance, get yourself some Gin.|68,039|
 |[caddyserver/caddy]()|Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS|46,853|
 |[traefik/traefik]()|The Cloud Native Application Proxy|42,625|
@@ -82,10 +82,11 @@ A list of my personally frequently used modules.
 |[golang-standards/project-layout]()|Standard Go Project Layout|39,067|
 |[rclone/rclone]()|"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Yandex Files|38,065|
 |[nektos/act]()|Run your GitHub Actions locally 🚀|37,512|
-|[go-gitea/gitea]()|Git with a cup of tea! Painless self-hosted all-in-one software development service, includes Git hosting, code review, team collaboration, package registry and CI/CD|36,031|
+|[go-gitea/gitea]()|Git with a cup of tea! Painless self-hosted all-in-one software development service, includes Git hosting, code review, team collaboration, package registry and CI/CD|36,032|
 |[go-gorm/gorm]()|The fantastic ORM library for Golang, aims to be developer friendly|32,140|
 |[cli/cli]()|GitHub’s official command line tool|32,047|
 |[spf13/cobra]()|A Commander for modern Go CLI interactions|31,532|
+|[halfrost/LeetCode-Go]()|✅ Solutions to LeetCode by Go, 100% test coverage, runtime beats 100% / LeetCode 题解|29,527|
 |[docker/compose]()|Define and run multi-container applications with Docker|29,224|
 |[gofiber/fiber]()|⚡️ Express inspired web framework written in Go|25,873|
 |[photoprism/photoprism]()|AI-Powered Photos App for the Decentralized Web 🌈💎✨|25,616|
@@ -98,7 +99,7 @@ A list of my personally frequently used modules.
 |[openfaas/faas]()|OpenFaaS - Serverless Functions Made Simple|22,958|
 |[pocketbase/pocketbase]()|Open Source realtime backend in 1 file|22,583|
 |[schollz/croc]()|Easily and securely send things from one computer to another :crocodile: :package:|22,337|
-|[doocs/leetcode]()|😏 LeetCode solutions in any programming language | 多种编程语言实现 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》题解|21,828|
+|[doocs/leetcode]()|😏 LeetCode solutions in any programming language   多种编程语言实现 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》题解|21,828|
 |[tmrts/go-patterns]()|Curated list of Go design patterns, recipes and idioms|21,814|
 |[zyedidia/micro]()|A modern and intuitive terminal-based text editor|21,401|
 |[iawia002/lux]()|👾 Fast and simple video download library and CLI tool written in Go|20,624|
@@ -109,7 +110,7 @@ A list of my personally frequently used modules.
 |[grafana/k6]()|A modern load testing tool, using Go and JavaScript - https://k6.io|20,079|
 |[fyne-io/fyne]()|Cross platform GUI toolkit in Go inspired by Material Design|20,049|
 |[quii/learn-go-with-tests]()|Learn Go with test-driven development|19,478|
-|[stretchr/testify]()|A toolkit with common assertions and mocks that plays nicely with the standard library|19,458|
+|[stretchr/testify]()|A toolkit with common assertions and mocks that plays nicely with the standard library|19,459|
 |[gocolly/colly]()|Elegant Scraper and Crawler Framework for Golang|19,375|
 |[dgraph-io/dgraph]()|Native GraphQL Database with graph backend|19,186|
 |[gorilla/websocket]()|A fast, well-tested and widely used WebSocket implementation for Go.|19,040|
@@ -165,7 +166,7 @@ A list of my personally frequently used modules.
 |[ginuerzh/gost]()|GO Simple Tunnel - a simple tunnel written in golang|12,279|
 |[gitleaks/gitleaks]()|Protect and discover secrets using Gitleaks 🔑|12,257|
 |[json-iterator/go]()|A high-performance 100% compatible drop-in replacement of "encoding/json"|12,132|
-|[dgraph-io/badger]()|Fast key-value DB in Go.|12,118|
+|[dgraph-io/badger]()|Fast key-value DB in Go.|12,119|
 |[tidwall/gjson]()|Get JSON values quickly - JSON parser for Go|12,074|
 |[halfrost/Halfrost-Field]()|✍🏻 这里是写博客的地方 —— Halfrost-Field 冰霜之地|11,992|
 |[peterq/pan-light]()|百度网盘不限速客户端, golang + qt5, 跨平台图形界面|11,886|

@@ -104,6 +104,7 @@ var sections = []Section{
 		Title: "Testing",
 		Repos: []Repo{
 			{Org: "ory", Name: "dockertest"},
+			{Org: "google", Name: "go-cmp"},
 		},
 	},
 	{
